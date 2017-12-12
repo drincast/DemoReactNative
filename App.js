@@ -5,22 +5,49 @@
  */
 
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry, Platform, StyleSheet, Text, View, Image} from 'react-native';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
   android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu, dn android',
+    'Shake or press menu button for dev menu, dn android, \n' +
+    '23a',
 });
+
+class Greeting extends Component{
+  render(){
+    return (
+      <Text>Hello {this.props.name} !!</Text>
+    );
+  }
+}
+
+class Blink extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {showtext: true};
+
+    setInterval(() => {
+      this.setState(previousState => {
+        return { showText: !previousState.showText };
+      });
+    }, 1500);
+  }
+
+  render() {
+    let display = this.state.showText ? this.props.text : ' ';
+    return (
+      <Text>{display}</Text>
+    );
+  }
+}
 
 export default class App extends Component<{}> {
   render() {
+    let pic = {
+      uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
+    };
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -32,6 +59,18 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <Image source={pic} style={{width: 193, height: 110}} />
+
+        <View style={{alignItems: 'center'}}>
+          <Greeting name='Rexxar' />
+          <Greeting name='Jaina' />
+          <Greeting name='Valeera' />
+        </View>
+
+        <View>
+          <Blink text='BLINK !!!!!' />
+          <Blink text='-----------' />
+        </View>
       </View>
     );
   }
