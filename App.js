@@ -18,7 +18,7 @@ const instructions = Platform.select({
 class Greeting extends Component{
   render(){
     return (
-      <Text>Hello {this.props.name} !!</Text>
+      <Text style={styles.red}>Hello {this.props.name} !!</Text>
     );
   }
 }
@@ -62,7 +62,7 @@ export default class App extends Component<{}> {
         <Image source={pic} style={{width: 193, height: 110}} />
 
         <View style={{alignItems: 'center'}}>
-          <Greeting name='Rexxar' />
+          <Greeting name='Rexxar' style={{color: 'blue'}} />
           <Greeting name='Jaina' />
           <Greeting name='Valeera' />
         </View>
@@ -70,6 +70,11 @@ export default class App extends Component<{}> {
         <View>
           <Blink text='BLINK !!!!!' />
           <Blink text='-----------' />
+        </View>
+
+        <View>
+          <Text style={styles.red}>Prueba style</Text>
+          <Text style={styles.bigblue}>Prueba style</Text>
         </View>
       </View>
     );
@@ -92,5 +97,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  bigblue: {
+    color: 'blue',
+    fontWeight: 'bold',
+    fontSize: 30,
+  },
+  red: {
+    color: 'red',
   },
 });
