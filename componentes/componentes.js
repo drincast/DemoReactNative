@@ -30,5 +30,7 @@ export class Blink extends Component{
 }
 
 export class LineaCuadros extends componentes{
-  
+  render(){
+    retun
+  }
 }
