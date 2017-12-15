@@ -42,4 +42,10 @@ export const estilosApp = StyleSheet.create({
   red: {
     color: 'red',
   },
+  boton: {
+    marginBottom: 30,
+    width: 260,
+    alignItems: 'center',
+    backgroundColor: '#2196F3'
+  }
 });

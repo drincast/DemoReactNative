@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput } from 'react-native';
+import { Alert, Button, Text, TextInput, TouchableHighlight, View } from 'react-native';
+import { estilosApp } from '../styles/styles.js';
+//import { StyleSheet } from "react-native";
 
 export class Greeting extends Component{
   render(){
@@ -49,7 +51,7 @@ export class PizzaTranslator extends Component {
 
   render() {
     return (
-      <View style={[adding: 10, flex: 2]}>
+      <View style={{padding: 10, flex: 2}}>
         <TextInput
           style={{height: 40}}
           placeholder="Type here to translate!"
@@ -58,6 +60,48 @@ export class PizzaTranslator extends Component {
         <Text style={{padding: 10, fontSize: 42}}>
           {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
         </Text>
+      </View>
+    );
+  }
+}
+
+export class BotonEspecial extends Component{
+  _onPressButton() {
+    Alert.alert('otro press!')
+  }
+
+  _onLongPressButton() {
+    Alert.alert('Me presionaste !')
+  }
+
+  render(){
+    return(
+      <View>
+      <TouchableHighlight onPress={this._onPressButton} underlayColor="white">
+        <View style={estilosApp.boton}>
+          <Text>Touchable with Long Press</Text>
+        </View>
+      </TouchableHighlight>
+
+      <TouchableHighlight
+        onPress={this._onPressButton}
+        onLongPress={this._onLongPressButton}
+        underlayColor="white">
+        <View style={estilosApp.boton}>
+          <Text>Presioname !!!!</Text>
+        </View>
+      </TouchableHighlight>
+
+      <Button
+        onPress={() =>{
+          Alert.alert('You tapped the button!!');
+        }}
+        onlongPress={() => {
+          Alert.alert('deja de presinar !!');
+        }}
+        title="Press ME"
+        color="red"
+      />
       </View>
     );
   }
