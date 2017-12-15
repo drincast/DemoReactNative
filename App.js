@@ -7,8 +7,8 @@
 import React, { Component } from 'react';
 //import { AppRegistry, Platform, StyleSheet, Text, View, Image} from 'react-native';
 import { estilosApp } from './styles/styles.js';
-import { AppRegistry, Platform, Text, View, Image} from 'react-native';
-import { Greeting, Blink } from './componentes/componentes';
+import { AppRegistry, Platform, Text, View, Image } from 'react-native';
+import { Greeting, Blink, LineaCuadros, PizzaTranslator } from './componentes/componentes';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -54,6 +54,10 @@ export default class App extends Component<{}> {
           <Text style={estilosApp.red}>Prueba style</Text>
           <Text style={estilosApp.bigblue}>Prueba style</Text>
         </View>
+
+        <LineaCuadros></LineaCuadros>
+
+        <PizzaTranslator />
       </View>
     );
   }
