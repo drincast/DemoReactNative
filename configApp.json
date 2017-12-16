@@ -1,0 +1,5 @@
+{
+  "urlApiMoviesFacebook": "https://facebook.github.io/react-native/movies.json",
+  "urlApiHerosLocal": "http://192.168.0.18:3000/api/v1/Heroes",
+  "urlApiHeros2Local": "http://192.168.0.18:3000/api/v1/Heroes2",
+}

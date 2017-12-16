@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Alert, Button, Text, TextInput, TouchableHighlight, View } from 'react-native';
+import { ActivityIndicator, Alert, Button, ListView, Text, TextInput, TouchableHighlight, View } from 'react-native';
 import { estilosApp } from '../styles/styles.js';
-//import { StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+const configApp = require('../configApp');
 
 export class Greeting extends Component{
   render(){
@@ -102,6 +103,141 @@ export class BotonEspecial extends Component{
         title="Press ME"
         color="red"
       />
+      </View>
+    );
+  }
+}
+
+export class ApiFacebookMoviesJSON extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    }
+  }
+
+  componentDidMount() {
+    return fetch(configApp.urlApiMoviesFacebook)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        this.setState({
+          isLoading: false,
+          dataSource: ds.cloneWithRows(responseJson.movies),
+        }, function() {
+          // do something with new state
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={{flex: 1, paddingTop: 20}}>
+          <ActivityIndicator />
+        </View>
+      );
+    }
+
+    return (
+      <View style={{flex: 1, paddingTop: 20}}>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData.title}, {rowData.releaseYear}</Text>}
+        />
+      </View>
+    );
+  }
+}
+
+export class ApiHeroesJSON extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    }
+  }
+
+  componentDidMount() {
+    return fetch(configApp.urlApiHerosLocal)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        this.setState({
+          isLoading: false,
+          dataSource: ds.cloneWithRows(responseJson),
+        }, function() {
+          // do something with new state
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={{flex: 1, paddingTop: 20}}>
+          <ActivityIndicator />
+        </View>
+      );
+    }
+
+    return (
+      <View style={{flex: 1, paddingTop: 20}}>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData.name}, {rowData.occupation}</Text>}
+        />
+      </View>
+    );
+  }
+}
+
+export class ApiHeroes2JSON extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true
+    }
+  }
+
+  componentDidMount() {
+    return fetch(configApp.urlApiHeros2Local)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        this.setState({
+          isLoading: false,
+          dataSource: ds.cloneWithRows(responseJson.heros),
+        }, function() {
+          // do something with new state
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  render() {
+    if (this.state.isLoading) {
+      return (
+        <View style={{flex: 1, paddingTop: 20}}>
+          <ActivityIndicator />
+        </View>
+      );
+    }
+
+    return (
+      <View style={{flex: 1, paddingTop: 20}}>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={(rowData) => <Text>{rowData.name}, {rowData.occupation}</Text>}
+        />
       </View>
     );
   }
