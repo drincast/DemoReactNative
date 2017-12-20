@@ -29,6 +29,7 @@ export class DemoControlsScreen extends Component{
           <Text style={estilosApp.welcome}>
             Welcome to React Native!
           </Text>
+          <Button onPress={() => this.props.navigation.navigate('Chat', { user: 'Andrea' })} title="Chat with Lucy" />
           <Text style={estilosApp.instructions}>
             To get started, edit App.js
           </Text>
