@@ -10,10 +10,12 @@ import { TabNavigator } from 'react-navigation';
 import { HomeScreen } from './Screens/HomeScreen';
 import { DemoControlsScreen } from './Screens/DemoControlsScreen';
 import { ChatScreen } from './Screens/ChatScreen';
+import { MapaScreen } from './Screens/MapaScreen';
 
 const MainScreenNavigator = TabNavigator({
   Recent: { screen: HomeScreen },
   All: { screen: DemoControlsScreen },
+  Maps: { screen: MapaScreen},
 });
 
 const SimpleApp = StackNavigator({

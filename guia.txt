@@ -6,9 +6,9 @@ npm install
 react-native link react-native-maps
 
 adicionar o modificar en android/app/build.gradle
-compile( project(':react-native-maps')){
-  exclude group: 'com.google.android.gms', module: 'play-services-base'
-  exclude group: 'com.google.android.gms', module: 'play-services-maps'
+dependencies {
+    compile project(':react-native-maps')
+    ...
 }
 
 adicionar o modificar en android/app/src/main/androidmanifest.xml
