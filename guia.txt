@@ -1,0 +1,20 @@
+para los mapas
+npm install --save react-native-maps
+
+linquiar mapas con react-Native
+npm install
+react-native link react-native-maps
+
+adicionar o modificar en android/app/build.gradle
+compile( project(':react-native-maps')){
+  exclude group: 'com.google.android.gms', module: 'play-services-base'
+  exclude group: 'com.google.android.gms', module: 'play-services-maps'
+}
+
+adicionar o modificar en android/app/src/main/androidmanifest.xml
+<application>
+  <!-- You will only need to add this meta-data tag, but make sure it's a child of application -->
+  <meta-data
+    android:name="com.google.android.geo.API_KEY"
+    android:value="YOUR GOOGLE MAPS API KEY HERE"/>
+</application>

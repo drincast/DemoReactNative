@@ -56,8 +56,7 @@ export class DemoControlsScreen extends Component{
             <Text style={estilosApp.bigblue}>Prueba style</Text>
           </View>
 
-          <ApiHeroes2JSON />
-          <ApiHeroesJSON />
+
           <ApiFacebookMoviesJSON />
           <BotonEspecial />
           <PizzaTranslator />
@@ -67,3 +66,6 @@ export class DemoControlsScreen extends Component{
     );
   }
 }
+
+// <ApiHeroes2JSON />
+// <ApiHeroesJSON />

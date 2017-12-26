@@ -47,5 +47,8 @@ export const estilosApp = StyleSheet.create({
     width: 260,
     alignItems: 'center',
     backgroundColor: '#2196F3'
+  },
+  map: {
+    flex: 1
   }
 });
