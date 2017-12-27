@@ -54,15 +54,17 @@ export class MapaScreen extends Component{
 
   render() {
     return (
-      <View style={estilosApp.container}>
-        {this.state.region.latitude ?<MapView
-            style={estilosApp.map}
-            initialRegion={this.state.region}>
-            <Mapview.marker
-              coordinate = {this.marker()}
-              title = "Im here!"
-              description = "Home" />
-          </MapView>: null}
+      <View style={estilosApp.container2}>
+        <MapView
+          provider={PROVIDER_GOOGLE}
+          style={estilosApp.map2}
+          initialRegion={{
+            latitude: 37.78825,
+            longitude: -122.4324,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          }}
+        />
       </View>
     );
   }
@@ -81,3 +83,12 @@ export class MapaScreen extends Component{
 //     longitudeDelta: 0.0121,
 //   }}>
 // </MapView>
+
+// {this.state.region.latitude ?<MapView
+//     style={estilosApp.map}
+//     initialRegion={this.state.region}>
+//     <Mapview.marker
+//       coordinate = {this.marker()}
+//       title = "Im here!"
+//       description = "Home" />
+//   </MapView>: null}

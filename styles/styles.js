@@ -50,5 +50,13 @@ export const estilosApp = StyleSheet.create({
   },
   map: {
     flex: 1
-  }
+  },
+  container2: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map2: {
+    ...StyleSheet.absoluteFillObject,
+  },
 });
